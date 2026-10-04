@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Planificador Profesional de Inmigración</title>
+<meta name="description" content="La app del Planificador Profesional de Inmigración 2027, de Jessica L. Pérez-Salazar, Esq.">
+<meta name="theme-color" content="#17243A">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Lato:wght@400;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Pantalla de acceso -->
+<div class="gate" id="gate" hidden>
+  <div class="gate-card" id="gatecard"></div>
+</div>
+
+<!-- La app -->
+<div id="app" hidden>
+<header class="top">
+  <div class="top-in">
+    <div class="brand"><span>Edición 2027</span><b>Planificador Profesional de Inmigración</b></div>
+    <div class="datenav" id="datenav">
+      <button id="prev" aria-label="Anterior">‹</button>
+      <input type="date" id="datepick" aria-label="Fecha">
+      <button id="next" aria-label="Siguiente">›</button>
+      <button id="today">Hoy</button>
+    </div>
+  </div>
+  <nav class="tabs" role="tablist" id="tabs"></nav>
+</header>
+<div class="shell">
+  <aside class="side" id="side" aria-label="Herramientas"></aside>
+  <main id="main"></main>
+</div>
+<footer class="foot"><span id="acc"></span><span>Herramienta educativa y de organización. No constituye asesoría legal. · <button id="logout">Cerrar sesión</button></span></footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="config.js"></script>
+<script src="data/content.js"></script>
+<script src="data/spec.js"></script>
+<script src="data/extra.js"></script>
+<script src="planner.js"></script>
+<script src="auth.js"></script>
+</body>
+</html>
