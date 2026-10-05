@@ -84,6 +84,11 @@ function screenActivate(){
   card.querySelector('#f1').onsubmit = async e => {
     e.preventDefault();
     const code = card.querySelector('#code').value.trim();
+    const { data: rc } = await sb.rpc('redeem_access_code', { p_code: code });
+    if (rc === 'ok') return route();
+    if (rc === 'used') return msg('Ese código de acceso ya fue utilizado. Si es tuyo, escríbenos.');
+    if (rc === 'too_many') return msg('Hiciste demasiados intentos. Espera una hora y vuelve a intentarlo.');
+    if (rc === 'bad_code') return msg('Ese código ya no está vigente.');
     const { data, error } = await sb.rpc('get_challenge', { p_code: code });
     if (error || !data || !data.length) return msg('Ese código no es válido o la edición ya venció. Revísalo en tu planner.');
     CHALLENGE = { code, ...data[0] };
