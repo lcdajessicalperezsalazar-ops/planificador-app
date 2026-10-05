@@ -14,7 +14,13 @@ const md = s => esc(s).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/&lt;br&gt
 const slug = s => s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const longDate = d => `${cap(DIAS[d.getDay()])}, ${d.getDate()} de ${MESES[d.getMonth()]} de ${d.getFullYear()}`;
 const START = new Date(2026, 11, 28);
-function weekNo(d){ const n = Math.floor((monday(d) - START) / 864e5 / 7) + 1; return ((n - 1) % 53 + 53) % 53 + 1; }
+function weekNo(d){
+  const n = Math.floor((monday(d) - START) / 864e5 / 7) + 1;
+  if (n >= 1 && n <= 53) return n;                       // semanas del planner 2027 (la 1 empieza el 28 dic 2026)
+  const t = new Date(d.getFullYear(), d.getMonth(), d.getDate()); t.setDate(t.getDate() + 3 - (t.getDay() + 6) % 7);
+  const w1 = new Date(t.getFullYear(), 0, 4);
+  return 1 + Math.round(((t - w1) / 864e5 - 3 + (w1.getDay() + 6) % 7) / 7); // semana ISO para otros años
+}
 const capsuleFor = d => DATA.caps[`${pad(d.getMonth()+1)}-${pad(d.getDate())}`] || ['Ética','Verifica antes de afirmar.'];
 const quarter = d => Math.floor(d.getMonth()/3) + 1;
 
