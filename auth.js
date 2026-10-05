@@ -138,3 +138,17 @@ sb.auth.onAuthStateChange((event) => {
   if (event === 'SIGNED_OUT'){ store.cache = {}; started = false; }
   if (['SIGNED_IN', 'SIGNED_OUT', 'INITIAL_SESSION'].includes(event)) setTimeout(route, 0);
 });
+
+/* ---------- Mi libro: PDF privado, solo para cuentas con acceso activo ---------- */
+const libroModal = document.getElementById('libromodal');
+document.getElementById('libro').onclick = () => { libroModal.hidden = false; };
+document.getElementById('librocerrar').onclick = () => { libroModal.hidden = true; };
+libroModal.addEventListener('click', e => { if (e.target === libroModal) libroModal.hidden = true; });
+libroModal.querySelectorAll('[data-libro]').forEach(b => b.onclick = async () => {
+  const m = document.getElementById('libromsg'); m.hidden = false; m.className = 'msg ok'; m.textContent = 'Preparando tu libro…';
+  const w = window.open('', '_blank');
+  const { data, error } = await sb.storage.from('libro').createSignedUrl(b.dataset.libro, 3600);
+  if (error || !data) { if (w) w.close(); m.className = 'msg err'; m.textContent = 'No pudimos abrir el libro. Verifica que tu acceso esté activo.'; return; }
+  if (w) w.location = data.signedUrl; else location.href = data.signedUrl;
+  m.hidden = true;
+});

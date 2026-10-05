@@ -34,6 +34,7 @@
       <input type="date" id="datepick" aria-label="Fecha">
       <button id="next" aria-label="Siguiente">›</button>
       <button id="today">Hoy</button>
+      <button id="libro" title="Mi libro digital">📖 Mi libro</button>
     </div>
   </div>
   <nav class="tabs" role="tablist" id="tabs"></nav>
@@ -42,6 +43,15 @@
   <aside class="side" id="side" aria-label="Herramientas"></aside>
   <main id="main"></main>
 </div>
+<div class="modal" id="libromodal" hidden><div class="modal-card">
+  <div class="eyebrow">Tu planner digital</div><h2>Mi libro</h2>
+  <p class="muted">Abre o descarga la agenda completa en PDF. Puedes leerla en el teléfono, la tableta o la computadora, o imprimir las páginas que necesites.</p>
+  <button class="btn" data-libro="Agenda_de_Inmigracion_2027.pdf">Agenda de Inmigración 2027 · Español</button>
+  <button class="btn" data-libro="Immigration_Planner_2027.pdf">Immigration Planner 2027 · English</button>
+  <p class="msg" id="libromsg" hidden></p>
+  <p class="muted small">Es para tu uso personal. Por favor no lo compartas.</p>
+  <button class="link" id="librocerrar">Cerrar</button>
+</div></div>
 <footer class="foot"><span id="acc"></span><span>Herramienta educativa y de organización. No constituye asesoría legal. · <button id="logout">Cerrar sesión</button></span></footer>
 </div>
 

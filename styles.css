@@ -144,3 +144,8 @@ td{border-bottom:1px solid var(--line);padding:8px 6px;vertical-align:top}
 .gate-card .gbtn{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:0;background:var(--surface);color:var(--ink);border:1px solid var(--line);font-weight:700}
 .gate-card .or{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13px;margin:14px 0}
 .gate-card .or::before,.gate-card .or::after{content:"";flex:1;border-top:1px solid var(--line)}
+.modal{position:fixed;inset:0;background:rgba(10,17,32,.55);display:flex;align-items:center;justify-content:center;padding:16px;z-index:50}
+.modal-card{background:var(--surface);color:var(--ink);border-radius:14px;max-width:440px;width:100%;padding:24px;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.modal-card .btn{display:block;width:100%;margin-top:10px;padding:11px}
+.modal-card .link{background:none;border:0;color:var(--gold-ink);text-decoration:underline;cursor:pointer;margin-top:8px;padding:6px 0}
+#libro{border-color:var(--gold)!important;color:var(--gold)!important}
