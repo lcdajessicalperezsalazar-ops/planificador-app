@@ -1,12 +1,12 @@
 {
-  "name": "Agenda de Inmigración 2027",
-  "short_name": "Agenda de Inmigración",
-  "lang": "es",
-  "id": "/",
-  "start_url": "/",
-  "scope": "/",
-  "background_color": "#04192D",
-  "theme_color": "#04192D",
+  "name": "Immigration Planner 2027",
+  "short_name": "Immigration Planner",
+  "lang": "en",
+  "id": "/en/",
+  "start_url": "/en/",
+  "scope": "/en/",
+  "background_color": "#17181A",
+  "theme_color": "#17181A",
   "description": "Planificador Profesional de Inmigración 2027 · Jessica L. Pérez-Salazar, Esq.",
   "display": "standalone",
   "orientation": "any",
@@ -17,19 +17,19 @@
   ],
   "icons": [
     {
-      "src": "/icons/es/icon-192.png",
+      "src": "/icons/en/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/es/icon-512.png",
+      "src": "/icons/en/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/es/maskable-512.png",
+      "src": "/icons/en/maskable-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
