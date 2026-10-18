@@ -93,9 +93,12 @@ function screenActivate(){
     if (error || !data || !data.length) return msg('Ese código no es válido o la edición ya venció. Revísalo en tu planner.');
     CHALLENGE = { code, ...data[0] };
     const s2 = card.querySelector('#step2'); s2.hidden = false; msg('');
-    s2.innerHTML = `<div class="challenge" style="margin-top:14px">Para confirmar que tienes el libro, abre tu planner en la <b>página ${CHALLENGE.page}</b> y escribe la <b>palabra número ${CHALLENGE.word_index}</b> del texto de esa página (sin contar el número de página).</div>
-      <form id="f2"><label class="lab" for="ans">Palabra</label><input type="text" id="ans" autocomplete="off" required>
-      <button class="btn" type="submit">Activar mi acceso</button></form>`;
+    const EN = /^PLANNER/i.test(code);
+    s2.innerHTML = `<div class="challenge" style="margin-top:14px">${EN
+      ? `To confirm you own the book, open your planner to <b>page ${CHALLENGE.page}</b>. In the <b>micro-lesson of the week</b> (the box at the bottom of the page), type <b>word number ${CHALLENGE.word_index}</b> of the text, not counting the title.`
+      : `Para confirmar que tienes el libro, abre tu planner en la <b>página ${CHALLENGE.page}</b>. En la <b>micro-lección de la semana</b> (el recuadro al final de la página), escribe la <b>palabra número ${CHALLENGE.word_index}</b> del texto, sin contar el título.`}</div>
+      <form id="f2"><label class="lab" for="ans">${EN ? "Word" : "Palabra"}</label><input type="text" id="ans" autocomplete="off" required>
+      <button class="btn" type="submit">${EN ? "Activate my access" : "Activar mi acceso"}</button></form>`;
     s2.querySelector('#f2').onsubmit = async ev => {
       ev.preventDefault();
       const { data: r, error: er } = await sb.rpc('redeem_code', { p_code: CHALLENGE.code, p_question_id: CHALLENGE.question_id, p_answer: s2.querySelector('#ans').value });
