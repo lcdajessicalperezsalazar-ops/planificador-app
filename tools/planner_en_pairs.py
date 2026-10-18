@@ -195,3 +195,5 @@ PLANNER += [
 ("${mon.getDate()} ${MESES[mon.getMonth()].slice(0,3)} – ${end.getDate()} ${MESES[end.getMonth()].slice(0,3)} ${end.getFullYear()}", "${MESES[mon.getMonth()].slice(0,3)} ${mon.getDate()} – ${MESES[end.getMonth()].slice(0,3)} ${end.getDate()}, ${end.getFullYear()}"),
 ("${p.fecha ? parse(p.fecha).getDate()+' '+MESES[parse(p.fecha).getMonth()].slice(0,3)+' '+p.fecha.slice(0,4) : '—'}", "${p.fecha ? MESES[parse(p.fecha).getMonth()].slice(0,3)+' '+parse(p.fecha).getDate()+', '+p.fecha.slice(0,4) : '—'}"),
 ]
+
+INDEX += [('<link rel="stylesheet" href="/styles.css">', '<link rel="stylesheet" href="/styles.css">\n<style>:root{--navy:#17181A}</style>')]
