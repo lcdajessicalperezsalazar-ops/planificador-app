@@ -148,4 +148,4 @@ td{border-bottom:1px solid var(--line);padding:8px 6px;vertical-align:top}
 .modal-card{background:var(--surface);color:var(--ink);border-radius:14px;max-width:440px;width:100%;padding:24px;box-shadow:0 20px 50px rgba(0,0,0,.3)}
 .modal-card .btn{display:block;width:100%;margin-top:10px;padding:11px}
 .modal-card .link{background:none;border:0;color:var(--gold-ink);text-decoration:underline;cursor:pointer;margin-top:8px;padding:6px 0}
-#libro{border-color:var(--gold)!important;color:var(--gold)!important}
+#libro{border-color:var(--gold)!important;color:var(--gold)!important;white-space:nowrap}

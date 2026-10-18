@@ -279,7 +279,7 @@ function dynWidgets(root, v, key){
 }
 const entrySel = {};
 async function vTool(sec, tool){
-  const key = 'tool-' + slug(tool.n);
+  const key = 'tool-' + slug(tool.key || tool.n);
   if (tool.ref){
     main.innerHTML = `<section class="view"><div class="head"><div><div class="eyebrow">${esc(sec.n)}</div><h1>${esc(tool.n)}</h1></div></div>
       ${tool.pages.map((p,pi)=>`<div class="card page">${pi||tool.pages.length>1?`<h2>${md(p.t)}</h2>`:''}${blocksHTML(p.b,'r'+pi,true)}</div>`).join('')}</section>`;
@@ -352,7 +352,7 @@ const SYS = [
   {id:'capital', n:'Mi capital social', tools:[]},
   {id:'biblioteca', n:'Biblioteca', tools:[]},
 ];
-SPEC.forEach(sec => { const sys = SYS.find(s => s.id === sec.id); sec.tools.forEach(t => sys.tools.push({id: slug(t.n), n: t.n, f: () => vTool(sec, t)})); });
+SPEC.forEach(sec => { const sys = SYS.find(s => s.id === sec.id); sec.tools.forEach(t => sys.tools.push({id: slug(t.key || t.n), n: t.n, f: () => vTool(sec, t)})); });
 
 const main = document.getElementById('main');
 let sys = 'tiempo', tool = 'dia';

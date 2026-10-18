@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Immigration Planner 2027</title>
-<meta name="description" content="La app del Planificador Profesional de Inmigración 2027, de Jessica L. Pérez-Salazar, Esq.">
+<meta name="description" content="The app for the Immigration Professional Planner 2027, by Jessica L. Pérez-Salazar, Esq.">
 <meta name="theme-color" content="#17181A">
 <link rel="manifest" href="/en/manifest.webmanifest">
 <link rel="icon" href="/icons/en/icon-192.png" type="image/png">
@@ -28,40 +28,40 @@
 <div id="app" hidden>
 <header class="top">
   <div class="top-in">
-    <div class="brand"><span>Edición 2027</span><b>Planificador Profesional de Inmigración</b></div>
+    <div class="brand"><span>2027 Edition</span><b>Immigration Professional Planner</b></div>
     <div class="datenav" id="datenav">
-      <button id="prev" aria-label="Anterior">‹</button>
-      <input type="date" id="datepick" aria-label="Fecha">
-      <button id="next" aria-label="Siguiente">›</button>
-      <button id="today">Hoy</button>
-      <button id="libro" title="Mi libro digital">📖 Mi libro</button>
+      <button id="prev" aria-label="Previous">‹</button>
+      <input type="date" id="datepick" aria-label="Date">
+      <button id="next" aria-label="Next">›</button>
+      <button id="today">Today</button>
+      <button id="libro" title="My digital book">📖 My book</button>
     </div>
   </div>
   <nav class="tabs" role="tablist" id="tabs"></nav>
 </header>
 <div class="shell">
-  <aside class="side" id="side" aria-label="Herramientas"></aside>
+  <aside class="side" id="side" aria-label="Tools"></aside>
   <main id="main"></main>
 </div>
 <div class="modal" id="libromodal" hidden><div class="modal-card">
-  <div class="eyebrow">Tu planner digital</div><h2>Mi libro</h2>
-  <p class="muted">Abre o descarga la agenda completa en PDF. Puedes leerla en el teléfono, la tableta o la computadora, o imprimir las páginas que necesites.</p>
-  <button class="btn" data-libro="Agenda_de_Inmigracion_2027.pdf">Agenda de Inmigración 2027 · Español</button>
+  <div class="eyebrow">Your digital planner</div><h2>My book</h2>
+  <p class="muted">Open or download the complete planner as a PDF. Read it on your phone, tablet or computer, or print the pages you need.</p>
   <button class="btn" data-libro="Immigration_Planner_2027.pdf">Immigration Planner 2027 · English</button>
+  <button class="btn" data-libro="Agenda_de_Inmigracion_2027.pdf">Agenda de Inmigración 2027 · Español</button>
   <p class="msg" id="libromsg" hidden></p>
-  <p class="muted small">Es para tu uso personal. Por favor no lo compartas.</p>
-  <button class="link" id="librocerrar">Cerrar</button>
+  <p class="muted small">For your personal use. Please do not share it.</p>
+  <button class="link" id="librocerrar">Close</button>
 </div></div>
-<footer class="foot"><span id="acc"></span><span>Herramienta educativa y de organización. No constituye asesoría legal. · <button id="logout">Cerrar sesión</button></span></footer>
+<footer class="foot"><span id="acc"></span><span>Educational and organizational tool. Not legal advice. · <button id="logout">Sign out</button></span></footer>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script src="/config.js"></script>
-<script src="/data/content.js"></script>
-<script src="/data/spec.js"></script>
-<script src="/data/extra.js"></script>
-<script src="/planner.js"></script>
-<script src="/auth.js"></script>
+<script src="/data/en/content.js"></script>
+<script src="/data/en/spec.js"></script>
+<script src="/data/en/extra.js"></script>
+<script src="/planner_en.js"></script>
+<script src="/auth_en.js"></script>
 <script>if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));</script>
 </body>
 </html>
