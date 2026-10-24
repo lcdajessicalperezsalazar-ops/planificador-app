@@ -165,3 +165,13 @@ td{border-bottom:1px solid var(--line);padding:8px 6px;vertical-align:top}
 .reader-txt p{margin:0 0 10px}
 .reader-nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:space-between;margin-top:10px}
 .modal-card .reader-nav .btn{display:inline-block;width:auto;margin-top:0}
+
+/* Botón de consulta visible */
+.datenav #consulta{background:var(--gold);border-color:var(--gold);color:#17243A;font-weight:700}
+.datenav #consulta:hover{filter:brightness(1.05)}
+@media (max-width:759px){
+  .datenav{flex-wrap:wrap}
+  .datenav #libro{flex:1}
+  .datenav #consulta{flex-basis:100%;order:10;padding:11px 12px;font-size:16px;text-align:left}
+  .datenav #consulta span::after{content:" · escribe tu pregunta"; font-weight:400}
+}
