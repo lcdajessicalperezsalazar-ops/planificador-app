@@ -177,6 +177,7 @@ INDEX = [
 ('aria-label="Siguiente"', 'aria-label="Next"'),
 ('<button id="today">Hoy</button>', '<button id="today">Today</button>'),
 ('title="Mi libro digital">📖 Mi libro</button>', 'title="My digital book">📖 My book</button>'),
+('<button id="consulta" title="Consulta el libro El Derecho de Inmigración en los Estados Unidos">⚖️ <span>Consulta el Derecho de Inmigración</span></button>', '<button id="consulta" title="Search the book U.S. Immigration Law: A Comprehensive Legal Guide">⚖️ <span>Consult U.S. Immigration Law</span></button>'),
 ('aria-label="Herramientas"', 'aria-label="Tools"'),
 ('<div class="eyebrow">Tu planner digital</div><h2>Mi libro</h2>', '<div class="eyebrow">Your digital planner</div><h2>My book</h2>'),
 ('<p class="muted">Abre o descarga la agenda completa en PDF. Puedes leerla en el teléfono, la tableta o la computadora, o imprimir las páginas que necesites.</p>', '<p class="muted">Open or download the complete planner as a PDF. Read it on your phone, tablet or computer, or print the pages you need.</p>'),
