@@ -1,11 +1,13 @@
 /* Consulta: preguntas respondidas con el texto del libro "El Derecho de Inmigración en los Estados Unidos".
-   La búsqueda corre en la base de datos (función search_book) y solo devuelve texto del libro. */
+   La búsqueda corre en la base de datos (función consulta_libro) y solo devuelve texto del libro. */
 (function () {
   const ED = 'es';
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const mark = s => esc(s).replace(/&lt;mark&gt;/g, '<mark>').replace(/&lt;\/mark&gt;/g, '</mark>');
-  const para = s => esc(s).split(/\n{1,}/).filter(x => x.trim()).map(x => `<p>${x}</p>`).join('');
-  const where = r => [r.chapter ? `Capítulo ${r.chapter}` : '', r.chapter_title || '', r.section ? `§ ${r.section}` : ''].filter(Boolean).join(' · ');
+  // une líneas partidas por un salto de página del PDF (sin punto final y la siguiente empieza en minúscula)
+  const joinBreaks = s => String(s ?? '').replace(/([^.:;?!”")\]])\n(?=[a-záéíóúñü(])/g, '$1 ');
+  const para = s => esc(joinBreaks(s)).split(/\n+/).filter(x => x.trim()).map(x => `<p>${x}</p>`).join('');
+  const where = r => [r.chapter ? `Capítulo ${r.chapter}` : 'Introducción', r.chapter ? (r.chapter_title || '') : '', r.page ? `pág. ${r.page}` : ''].filter(Boolean).join(' · ');
 
   const modal = document.createElement('div');
   modal.className = 'modal consulta'; modal.id = 'consultamodal'; modal.hidden = true;
@@ -30,13 +32,14 @@
   let last = [];
   async function search(q) {
     out.innerHTML = '<p class="muted">Buscando en el libro…</p>';
-    const { data, error } = await sb.rpc('search_book', { q, ed: ED, n: 6 });
+    const { data, error } = await sb.rpc('consulta_libro', { q, ed: ED, n: 6 });
     if (error) { out.innerHTML = '<p class="msg err">No pudimos consultar el libro. Verifica que tu acceso esté activo.</p>'; return; }
     last = data || [];
     if (!last.length) { out.innerHTML = '<p class="muted">El libro no trata este tema con esas palabras. Prueba con otros términos, por ejemplo el nombre del alivio, del formulario o del caso.</p>'; return; }
     out.innerHTML = `<div class="muted small">Lo que dice el libro sobre tu pregunta:</div>` + last.map((r, i) => `
       <article class="hit">
         <div class="hit-where">${esc(where(r))}</div>
+        ${r.section && r.section !== r.heading ? `<div class="hit-sec">${esc(r.section)}</div>` : ''}
         ${r.heading ? `<h3>${esc(r.heading)}</h3>` : ''}
         <div class="hit-txt">${mark(r.snippet)}</div>
         <button class="link" data-read="${r.ord}">Leer la sección completa</button>
@@ -46,10 +49,11 @@
 
   async function read(ord) {
     out.innerHTML = '<p class="muted">Abriendo la sección…</p>';
-    const { data, error } = await sb.from('book_chunks').select('ord,chapter,chapter_title,section,heading,body').eq('edition', ED).eq('ord', ord).maybeSingle();
+    const { data, error } = await sb.from('book_chunks').select('ord,chapter,chapter_title,section,heading,page,body').eq('edition', ED).eq('ord', ord).maybeSingle();
     if (error || !data) { out.innerHTML = '<p class="msg err">No pudimos abrir esta sección.</p>'; return; }
     out.innerHTML = `<article class="reader">
       <div class="hit-where">${esc(where(data))}</div>
+      ${data.section && data.section !== data.heading ? `<div class="hit-sec">${esc(data.section)}</div>` : ''}
       ${data.heading ? `<h3>${esc(data.heading)}</h3>` : ''}
       <div class="reader-txt">${para(data.body)}</div>
       <div class="reader-nav">

@@ -158,6 +158,7 @@ td{border-bottom:1px solid var(--line);padding:8px 6px;vertical-align:top}
 .consulta-out .hit{border-top:1px solid var(--line);padding:12px 0}
 .consulta-out .hit h3,.consulta-out .reader h3{font-family:'Cormorant Garamond',serif;font-size:20px;margin:2px 0 6px}
 .hit-where{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-ink)}
+.hit-sec{font-size:13px;color:var(--muted,#667);margin-top:2px}
 .hit-txt{line-height:1.55}
 .hit-txt mark{background:rgba(201,162,74,.28);color:inherit;padding:0 2px;border-radius:2px}
 .reader-txt{line-height:1.65}
