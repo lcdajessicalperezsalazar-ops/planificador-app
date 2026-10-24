@@ -173,5 +173,4 @@ td{border-bottom:1px solid var(--line);padding:8px 6px;vertical-align:top}
   .datenav{flex-wrap:wrap}
   .datenav #libro{flex:1}
   .datenav #consulta{flex-basis:100%;order:10;padding:11px 12px;font-size:16px;text-align:left}
-  .datenav #consulta span::after{content:" · escribe tu pregunta"; font-weight:400}
 }

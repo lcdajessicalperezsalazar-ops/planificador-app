@@ -12,8 +12,8 @@
   const modal = document.createElement('div');
   modal.className = 'modal consulta'; modal.id = 'consultamodal'; modal.hidden = true;
   modal.innerHTML = `<div class="modal-card wide" role="dialog" aria-labelledby="consultatit">
-    <div class="eyebrow">El Derecho de Inmigración en los Estados Unidos</div>
-    <h2 id="consultatit">Consulta mi libro</h2>
+    <div class="eyebrow">Del libro El Derecho de Inmigración en los Estados Unidos</div>
+    <h2 id="consultatit">Consulta el Derecho de Inmigración</h2>
     <form id="consultaform" class="consulta-form">
       <input id="consultaq" type="search" placeholder="Escribe tu pregunta. Ej.: requisitos de la cancelación de remoción" autocomplete="off" aria-label="Tu pregunta">
       <button class="btn" type="submit">Buscar</button>
