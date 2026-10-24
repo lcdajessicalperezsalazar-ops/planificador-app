@@ -149,3 +149,19 @@ td{border-bottom:1px solid var(--line);padding:8px 6px;vertical-align:top}
 .modal-card .btn{display:block;width:100%;margin-top:10px;padding:11px}
 .modal-card .link{background:none;border:0;color:var(--gold-ink);text-decoration:underline;cursor:pointer;margin-top:8px;padding:6px 0}
 #libro{border-color:var(--gold)!important;color:var(--gold)!important;white-space:nowrap}
+
+/* Consulta del libro */
+.modal-card.wide{max-width:760px;max-height:92vh;overflow:auto}
+.consulta-form{display:flex;gap:8px;margin:12px 0}
+.consulta-form input{flex:1;min-width:0;padding:11px 12px;border:1px solid var(--line);border-radius:8px;font:inherit;background:var(--surface);color:var(--ink)}
+.modal-card .consulta-form .btn{display:inline-block;width:auto;margin-top:0}
+.consulta-out .hit{border-top:1px solid var(--line);padding:12px 0}
+.consulta-out .hit h3,.consulta-out .reader h3{font-family:'Cormorant Garamond',serif;font-size:20px;margin:2px 0 6px}
+.hit-where{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-ink)}
+.hit-sec{font-size:13px;color:var(--muted,#667);margin-top:2px}
+.hit-txt{line-height:1.55}
+.hit-txt mark{background:rgba(201,162,74,.28);color:inherit;padding:0 2px;border-radius:2px}
+.reader-txt{line-height:1.65}
+.reader-txt p{margin:0 0 10px}
+.reader-nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:space-between;margin-top:10px}
+.modal-card .reader-nav .btn{display:inline-block;width:auto;margin-top:0}
